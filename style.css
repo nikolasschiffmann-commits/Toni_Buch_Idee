@@ -93,38 +93,86 @@ body {
 }
 
 /* ----------------------------------------------------
-   COVER STYLING
+   COVER STYLING (Modernes Hardcover-Design)
 ---------------------------------------------------- */
 .cover {
-    background: linear-gradient(135deg, #0077c2, #00a8ff);
-    color: white;
+    background: linear-gradient(145deg, #1d4ed8, #0284c7) !important;
+    background-image: 
+        radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 60%),
+        linear-gradient(145deg, #0f172a, #1e3a8a) !important;
+    color: #ffffff;
+    position: relative;
+    box-shadow: inset -10px 0 20px rgba(0, 0, 0, 0.4) !important;
+    border-radius: 8px 0 0 8px !important;
 }
 
+/* Kanten-Prägung wie bei einem echten Buchrücken */
+.cover::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.cover .page-content {
+    padding: 35px 25px !important;
+    justify-content: space-between !important;
+    background: transparent !important;
+}
+
+/* Edle Typografie für den Buchtitel */
 .cover h1 {
-    font-size: 2.2rem;
-    margin-bottom: 5px;
-    text-shadow: 1px 2px 4px rgba(0,0,0,0.2);
+    font-family: 'Chalkboard SE', 'Comic Sans MS', sans-serif;
+    font-size: 2.4rem !important;
+    font-weight: 800;
+    margin: 5px 0 0 0 !important;
+    color: #fff8e7;
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.4),
+        0 0 10px rgba(253, 224, 71, 0.2);
+    letter-spacing: 0.5px;
 }
 
 .cover .subtitle {
-    font-size: 1.3rem;
+    font-size: 1.2rem !important;
+    color: #e2e8f0;
+    font-weight: 500;
+    margin-top: 4px !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     opacity: 0.9;
 }
 
+/* Hochwertiger Rahmen für das Cover-Bild */
 .cover-bild {
-    max-width: 85%;
-    max-height: 45vh;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    margin: 15px 0;
+    max-width: 88% !important;
+    max-height: 48vh !important;
+    border-radius: 16px !important;
+    border: 4px solid #fef08a; /* Feine Gold/Gelb-Umrandung */
+    box-shadow: 
+        0 12px 25px rgba(0, 0, 0, 0.35),
+        0 4px 10px rgba(0, 0, 0, 0.2) !important;
+    margin: 10px 0 !important;
     object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
+/* Dezent & modernes Badge für den Umblätter-Hinweis */
 .cover .hinweis {
-    font-size: 1rem;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 8px 15px;
-    border-radius: 20px;
+    font-size: 0.95rem !important;
+    color: #f8fafc !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 10px 20px !important;
+    border-radius: 30px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-bottom: 5px !important;
 }
 
 /* ----------------------------------------------------
