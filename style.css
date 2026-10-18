@@ -49,25 +49,23 @@ body {
     background-color: #ffffff;
 }
 
+/* Buchfalz-Schatten & Rechter Buchrücken */
 .right-page {
-    box-shadow: inset 15px 0 20px -10px rgba(0, 0, 0, 0.15);
-    border-radius: 0 8px 8px 0;
-    
-    /* Erzwingt die Anzeige des Hintergrundbildes */
+    box-shadow: inset 15px 0 20px -10px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 0 8px 8px 0 !important;
     background-color: #fffdfa !important;
+}
+
+/* Hintergrundbild direkt auf den Inhalt der rechten Seite legen */
+.right-page .page-content {
     background-image: url('text_hintergrund.png') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
-}
-
-/* Sorgt dafür, dass der Text über dem Hintergrundbild perfekt lesbar bleibt */
-.right-page .page-content {
-    background-color: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(2px);
-    margin: 20px;
-    border-radius: 12px;
-    height: calc(100% - 40px);
+    width: 100% !important;
+    height: 100% !important;
+    padding: 30px !important;
+    box-sizing: border-box !important;
 }
 
 /* Buch-Cover Styling */
