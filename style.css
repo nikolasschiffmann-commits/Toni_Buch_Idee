@@ -45,3 +45,13 @@ function spielBlätterTon() {
         // Stumm weitermachen, falls Audio nicht unterstützt wird
     }
 }
+
+/* Styling für das Cover-Bild */
+.cover-bild {
+    max-width: 80%;
+    max-height: 45vh;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    margin: 15px 0;
+    object-fit: cover;
+}
