@@ -1,0 +1,85 @@
+/* Grundlegendes Design für den Hintergrund */
+body {
+    background-color: #f0f4f8;
+    font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif, Arial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Der Buch-Container (im Querformat optimiert fürs iPad) */
+#buch {
+    width: 90vw;
+    max-width: 1000px;
+    height: 75vh;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+    box-sizing: border-box;
+    border: 5px solid #d4af37; /* Ein schöner goldener Buchrand */
+}
+
+/* Stil für eine einzelne Seite */
+.seite {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+/* Cover-Ansicht etwas hervorheben */
+.cover {
+    justify-content: center;
+    background: linear-gradient(135deg, #e0f7fa, #80deea);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.cover h1 {
+    font-size: 2.5rem;
+    color: #0077c2;
+    margin-bottom: 10px;
+}
+
+.hinweis {
+    margin-top: 30px;
+    font-size: 1.1rem;
+    color: #555;
+    font-weight: bold;
+}
+
+/* Platzhalter für die späteren Strichzeichnungen */
+.bild-platzhalter {
+    width: 60%;
+    height: 45vh;
+    border: 3px dashed #bbb;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
+    margin: 15px 0;
+    color: #777;
+    font-size: 1.2rem;
+}
+
+/* Der Text für Toni */
+.geschichte {
+    font-size: 1.5rem;
+    color: #333;
+    max-width: 800px;
+    line-height: 1.4;
+}
+
+h2 {
+    color: #0077c2;
+    margin-top: 0;
+}
