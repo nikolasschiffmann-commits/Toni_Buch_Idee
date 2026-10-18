@@ -93,14 +93,14 @@ body {
 }
 
 /* ----------------------------------------------------
-   COVER STYLING (Modernes Hardcover-Design)
+   COVER STYLING (Vorder- und Rückseite)
 ---------------------------------------------------- */
 .cover {
     background: linear-gradient(145deg, #1d4ed8, #0284c7) !important;
     background-image: 
         radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 60%),
         linear-gradient(145deg, #0f172a, #1e3a8a) !important;
-    color: #ffffff;
+    color: #ffffff !important;
     position: relative;
     box-shadow: inset -10px 0 20px rgba(0, 0, 0, 0.4) !important;
     border-radius: 8px 0 0 8px !important;
@@ -124,22 +124,31 @@ body {
     background: transparent !important;
 }
 
+/* Texte & Überschriften auf Cover-Seiten hell machen */
+.cover h1,
+.cover h2,
+.cover .geschichte,
+.cover .ende {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
 /* Edle Typografie für den Buchtitel */
 .cover h1 {
     font-family: 'Chalkboard SE', 'Comic Sans MS', sans-serif;
     font-size: 2.4rem !important;
     font-weight: 800;
     margin: 5px 0 0 0 !important;
-    color: #fff8e7;
+    color: #fff8e7 !important;
     text-shadow: 
         0 2px 4px rgba(0, 0, 0, 0.4),
-        0 0 10px rgba(253, 224, 71, 0.2);
+        0 0 10px rgba(253, 224, 71, 0.2) !important;
     letter-spacing: 0.5px;
 }
 
 .cover .subtitle {
     font-size: 1.2rem !important;
-    color: #e2e8f0;
+    color: #e2e8f0 !important;
     font-weight: 500;
     margin-top: 4px !important;
     letter-spacing: 1px;
@@ -152,13 +161,12 @@ body {
     max-width: 88% !important;
     max-height: 48vh !important;
     border-radius: 16px !important;
-    border: 4px solid #fef08a; /* Feine Gold/Gelb-Umrandung */
+    border: 4px solid #fef08a;
     box-shadow: 
         0 12px 25px rgba(0, 0, 0, 0.35),
         0 4px 10px rgba(0, 0, 0, 0.2) !important;
     margin: 10px 0 !important;
     object-fit: cover;
-    transition: transform 0.3s ease;
 }
 
 /* Dezent & modernes Badge für den Umblätter-Hinweis */
