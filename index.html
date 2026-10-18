@@ -1,94 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tonis Reise nach Griechenland</title>
+    <title>Tonis Reise nach Tinos</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
+<body>
 
+    <div id="buch">
+        
+        <!-- Cover -->
+        <div class="seite cover">
+            <h1>Tonis Reise nach Tinos 🇬🇷</h1>
+            <p>Ein Bilderbuch für Toni</p>
+            <p class="hinweis">👈 Tippe ins Buch zum Umblättern</p>
+        </div>
 
-/* Grundlegendes Design für den Hintergrund */
-body {
-    background-color: #f0f4f8;
-    font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif, Arial;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
-}
+        <!-- Seite 1 -->
+        <div class="seite">
+            <h2>1. Koffer packen!</h2>
+            <div class="bild-platzhalter">🎨 [Zeichnung: Toni mit Koffer]</div>
+            <p class="geschichte">Koffer packen! Wo ist das Flugzeug? Da oben! Ab geht die Reise.</p>
+        </div>
 
-/* Der Buch-Container (im Querformat optimiert fürs iPad) */
-#buch {
-    width: 90vw;
-    max-width: 1000px;
-    height: 75vh;
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 40px;
-    box-sizing: border-box;
-    border: 5px solid #d4af37; /* Ein schöner goldener Buchrand */
-}
+        <!-- Seite 2 -->
+        <div class="seite">
+            <h2>2. Im Flugzeug</h2>
+            <div class="bild-platzhalter">🎨 [Zeichnung: Flugzeug in den Wolken]</div>
+            <p class="geschichte">Hoch oben in den Wolken... Wusch! Der Flieger fliegt ganz schnell.</p>
+        </div>
 
-/* Stil für eine einzelne Seite */
-.seite {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: 100%;
-}
+        <!-- Seite 3 -->
+        <div class="seite">
+            <h2>3. Ankunft in Rafina</h2>
+            <div class="bild-platzhalter">🎨 [Zeichnung: Hafen von Rafina mit Schiffen]</div>
+            <p class="geschichte">Hallo Griechenland! Wir sind am Hafen in Rafina. Schau mal, wie viele Schiffe!</p>
+        </div>
 
-/* Cover-Ansicht etwas hervorheben */
-.cover {
-    justify-content: center;
-    background: linear-gradient(135deg, #e0f7fa, #80deea);
-    border-radius: 10px;
-    padding: 20px;
-}
+        <!-- Seite 4 -->
+        <div class="seite">
+            <h2>4. Mit dem Katamaran</h2>
+            <div class="bild-platzhalter">🎨 [Zeichnung: Schneller Katamaran auf dem Meer]</div>
+            <p class="geschichte">Tuff-tuff! Wir fahren mit dem schnellen Katamaran über das blaue Meer nach Tinos.</p>
+        </div>
 
-.cover h1 {
-    font-size: 2.5rem;
-    color: #0077c2;
-    margin-bottom: 10px;
-}
+        <!-- Seite 5 -->
+        <div class="seite">
+            <h2>5. Am Strand</h2>
+            <div class="bild-platzhalter">🎨 [Zeichnung: Toni baut Sandburg & sammelt Muscheln]</div>
+            <p class="geschichte">Platsch! Toni baut eine riesige Sandburg am Strand und sammelt bunte Muscheln.</p>
+        </div>
 
-.hinweis {
-    margin-top: 30px;
-    font-size: 1.1rem;
-    color: #555;
-    font-weight: bold;
-}
+        <!-- Seite 6 -->
+        <div class="seite">
+            <h2>6. Papa fährt Fahrrad!</h2>
+            <div class="bild-platzhalter">🎨 [Zeichnung: Papa fährt Fahrrad den Berg hoch, Toni jubelt]</div>
+            <p class="geschichte">Strampeln, Papa! Toni ruft vom Straßenrand: „Auf geht’s Papa, Schokolade kaufen!“ 🍫</p>
+        </div>
 
-/* Platzhalter für die späteren Strichzeichnungen */
-.bild-platzhalter {
-    width: 60%;
-    height: 45vh;
-    border: 3px dashed #bbb;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fafafa;
-    margin: 15px 0;
-    color: #777;
-    font-size: 1.2rem;
-}
+        <!-- Seite 7 -->
+        <div class="seite">
+            <h2>7. Auf dem Spielplatz</h2>
+            <div class="bild-platzhalter">🎨 [Zeichnung: Toni schaukelt und sieht Fähren im Hafen]</div>
+            <p class="geschichte">Hui, wie hoch! Von der Schaukel aus sieht Toni die großen Fähren im Hafen anlegen.</p>
+        </div>
 
-/* Der Text für Toni */
-.geschichte {
-    font-size: 1.5rem;
-    color: #333;
-    max-width: 800px;
-    line-height: 1.4;
-}
+        <!-- Seite 8 -->
+        <div class="seite">
+            <h2>8. Mit Oma und Opa</h2>
+            <div class="bild-platzhalter">🎨 [Zeichnung: Toni spielt am Strand mit Oma und Opa]</div>
+            <p class="geschichte">Hurra! Toni baut zusammen mit Oma und Opa die allergrößte Sandburg am Meer.</p>
+        </div>
 
-h2 {
-    color: #0077c2;
-    margin-top: 0;
-}
+        <!-- Seite 9 -->
+        <div class="seite">
+            <h2>9. Der Pelikan</h2>
+            <div class="bild-platzhalter">🎨 [Zeichnung: Toni und Mama Alina besuchen den Pelikan]</div>
+            <p class="geschichte">Guck mal! Zusammen mit Mama Alina besucht Toni den Pelikan direkt neben dem Spielplatz.</p>
+        </div>
+
+        <!-- Seite 10 -->
+        <div class="seite">
+            <h2>10. Beim Bäcker</h2>
+            <div class="bild-platzhalter">🎨 [Zeichnung: Toni kauft ein Käsebrötchen im urigen Bäckerladen]</div>
+            <p class="geschichte">Mjam! Toni holt sich ein leckeres Käsebrötchen beim Bäcker und sagt stolz: „Efcharisto!“ 🥐</p>
+        </div>
+
+        <!-- Seite 11 -->
+        <div class="seite">
+            <h2>11. Tschüss Tinos!</h2>
+            <div class="bild-platzhalter">🎨 [Zeichnung: Katamaran auf der Rückfahrt]</div>
+            <p class="geschichte">Tschüss schöne Insel! Mit dem Katamaran geht es wieder über das große blaue Meer.</p>
+        </div>
+
+        <!-- Seite 12 -->
+        <div class="seite">
+            <h2>12. Flug nach Frankfurt</h2>
+            <div class="bild-platzhalter">🎨 [Zeichnung: Flugzeug fliegt von Mykonos nach Frankfurt]</div>
+            <p class="geschichte">Von Mykonos geht es hoch in die Luft – zurück nach Frankfurt. Tschüss Griechenland!</p>
+        </div>
+
+        <!-- Seite 13 -->
+        <div class="seite">
+            <h2>13. Gute Nacht auf dem Heimweg</h2>
+            <div class="bild-platzhalter">🎨 [Zeichnung: Schlafender Toni im Kindersitz im Auto]</div>
+            <p class="geschichte">Brumm brumm... Im Auto schläft Toni sanft ein. Was für eine wunderschöne Reise! ✨</p>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
