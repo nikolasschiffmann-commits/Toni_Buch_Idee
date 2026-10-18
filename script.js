@@ -1,39 +1,28 @@
-// Aktuelle Seite, bei 0 fangen wir an (Cover)
-let aktuelleSeite = 0;
-const seiten = document.querySelectorAll('.seite');
-
-// Funktion zum Umblättern
-function blättern(richtung) {
-    seiten[aktuelleSeite].style.display = 'none';
-    
-    aktuelleSeite += richtung;
-    
-    // Begrenzung, damit wir nicht über das Ende hinausblättern
-    if (aktuelleSeite >= seiten.length) {
-        aktuelleSeite = 0; // Wieder von vorne anfangen
-    } else if (aktuelleSeite < 0) {
-        aktuelleSeite = seiten.length - 1;
-    }
-    
-    seiten[aktuelleSeite].style.display = 'flex';
-    
-    // Kleine Sound-Effekt-Simulation (Web Audio API für ein dezentes "Blätter-Geräusch")
-    spielBlätterTon();
-}
-
-// Nur die erste Seite beim Start anzeigen, den Rest verstecken
-window.onload = () => {
-    seiten.forEach((s, index) => {
-        if (index !== 0) s.style.display = 'none';
+window.addEventListener('DOMContentLoaded', () => {
+    // Initialisierung des 3D-Buchs mit StPageFlip
+    const pageFlip = new St.PageFlip(document.getElementById('buch'), {
+        width: 500, // Breite einer einzelnen Seite
+        height: 650, // Höhe einer einzelnen Seite
+        size: "stretch", // Passt sich flexibel dem iPad-Bildschirm an
+        minWidth: 300,
+        maxWidth: 700,
+        minHeight: 400,
+        maxHeight: 900,
+        maxShadowOpacity: 0.5, // Echter 3D-Schattenwurf beim Blättern
+        showCover: true, // Startet mit dem geschlossenen Buch/Cover
+        mobileScrollSupport: false
     });
 
-    // Klick ins Buch blättert automatisch weiter
-    document.getElementById('buch').addEventListener('click', () => {
-        blättern(1);
-    });
-};
+    // Lädt alle Seiten aus dem HTML
+    pageFlip.loadFromHTML(document.querySelectorAll('.page'));
 
-// Erzeugt ein kurzes, sanftes "Wisch"-Geräusch über den Browser
+    // Erzeugt das Blätter-Geräusch beim Umblättern
+    pageFlip.on('flip', (e) => {
+        spielBlätterTon();
+    });
+});
+
+// Sound-Effekt über die Web Audio API
 function spielBlätterTon() {
     try {
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -41,18 +30,18 @@ function spielBlätterTon() {
         const gainNode = audioCtx.createGain();
         
         oscillator.type = 'sine';
-        oscillator.frequency.setValueAtTime(300, audioCtx.currentTime);
-        oscillator.frequency.exponentialRampToValueAtTime(80, audioCtx.currentTime + 0.15);
+        oscillator.frequency.setValueAtTime(250, audioCtx.currentTime);
+        oscillator.frequency.exponentialRampToValueAtTime(60, audioCtx.currentTime + 0.12);
         
-        gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
+        gainNode.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.12);
         
         oscillator.connect(gainNode);
         gainNode.connect(audioCtx.destination);
         
         oscillator.start();
-        oscillator.stop(audioCtx.currentTime + 0.15);
+        oscillator.stop(audioCtx.currentTime + 0.12);
     } catch (e) {
-        // Falls der Browser keinen AudioContext erlaubt, läuft es einfach stumm weiter
+        // Stumm weitermachen, falls Audio nicht unterstützt wird
     }
 }
