@@ -42,21 +42,36 @@ body {
     box-sizing: border-box;
 }
 
-/* Buchfalz-Schatten (Simulation der Buchmitte) */
+/* ----------------------------------------------------
+   LINKESEITE (Bildseite mit Hintergrund)
+---------------------------------------------------- */
 .left-page {
-    box-shadow: inset -15px 0 20px -10px rgba(0, 0, 0, 0.15);
-    border-radius: 8px 0 0 8px;
-    background-color: #ffffff;
+    box-shadow: inset -15px 0 20px -10px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 8px 0 0 8px !important;
+    background-color: #fffdfa !important;
 }
 
-/* Buchfalz-Schatten & Rechter Buchrücken */
+/* Hintergrundbild auch auf den linken Seiten */
+.left-page .page-content {
+    background-image: url('text_hintergrund.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+}
+
+/* ----------------------------------------------------
+   RECHTE SEITE (Textseite mit Hintergrund & schmaler Box)
+---------------------------------------------------- */
 .right-page {
     box-shadow: inset 15px 0 20px -10px rgba(0, 0, 0, 0.15) !important;
     border-radius: 0 8px 8px 0 !important;
     background-color: #fffdfa !important;
 }
 
-/* Hintergrundbild direkt auf den Inhalt der rechten Seite legen */
 .right-page .page-content {
     background-image: url('text_hintergrund.png') !important;
     background-size: cover !important;
@@ -68,7 +83,18 @@ body {
     box-sizing: border-box !important;
 }
 
-/* Buch-Cover Styling */
+/* Schmalere Text-Box (ca. 1/3 schmaler = 68% Breite) */
+.right-page h2,
+.right-page .geschichte,
+.right-page .ende {
+    max-width: 68% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* ----------------------------------------------------
+   COVER STYLING
+---------------------------------------------------- */
 .cover {
     background: linear-gradient(135deg, #0077c2, #00a8ff);
     color: white;
@@ -101,18 +127,20 @@ body {
     border-radius: 20px;
 }
 
-/* Styling für die Zeichnungen auf den linken Seiten */
+/* ----------------------------------------------------
+   STYLING FÜR DIE ZEICHNUNGEN (Links)
+---------------------------------------------------- */
 .buch-bild {
-    max-width: 100%;
-    max-height: 85vh;
+    max-width: 90%;
+    max-height: 80vh;
     width: auto;
     height: auto;
     object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 
-/* Seiten-Inhalte */
+/* Typografie */
 h2 {
     color: #0077c2;
     font-size: 1.8rem;
@@ -120,10 +148,10 @@ h2 {
 }
 
 .geschichte {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     color: #2c3e50;
     line-height: 1.5;
-    margin: 20px 0 0 0;
+    margin: 15px 0 0 0;
 }
 
 .ende {
