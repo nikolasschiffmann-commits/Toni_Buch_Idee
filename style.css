@@ -1,54 +1,93 @@
-window.addEventListener('DOMContentLoaded', () => {
-    // Initialisierung des 3D-Buchs mit StPageFlip
-    const pageFlip = new St.PageFlip(document.getElementById('buch'), {
-        width: 500, // Breite einer einzelnen Seite
-        height: 650, // Höhe einer einzelnen Seite
-        size: "stretch", // Passt sich flexibel dem iPad-Bildschirm an
-        minWidth: 300,
-        maxWidth: 700,
-        minHeight: 400,
-        maxHeight: 900,
-        maxShadowOpacity: 0.5, // Echter 3D-Schattenwurf beim Blättern
-        showCover: true, // Startet mit dem geschlossenen Buch/Cover
-        mobileScrollSupport: false
-    });
-
-    // Lädt alle Seiten aus dem HTML
-    pageFlip.loadFromHTML(document.querySelectorAll('.page'));
-
-    // Erzeugt das Blätter-Geräusch beim Umblättern
-    pageFlip.on('flip', (e) => {
-        spielBlätterTon();
-    });
-});
-
-// Sound-Effekt über die Web Audio API
-function spielBlätterTon() {
-    try {
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        const oscillator = audioCtx.createOscillator();
-        const gainNode = audioCtx.createGain();
-        
-        oscillator.type = 'sine';
-        oscillator.frequency.setValueAtTime(250, audioCtx.currentTime);
-        oscillator.frequency.exponentialRampToValueAtTime(60, audioCtx.currentTime + 0.12);
-        
-        gainNode.gain.setValueAtTime(0.08, audioCtx.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.12);
-        
-        oscillator.connect(gainNode);
-        gainNode.connect(audioCtx.destination);
-        
-        oscillator.start();
-        oscillator.stop(audioCtx.currentTime + 0.12);
-    } catch (e) {
-        // Stumm weitermachen, falls Audio nicht unterstützt wird
-    }
+* {
+    box-sizing: border-box;
 }
 
-/* Styling für das Cover-Bild */
+body {
+    background: #eef2f5;
+    background-image: radial-gradient(#d0d7de 1px, transparent 1px);
+    background-size: 20px 20px;
+    font-family: 'Chalkboard SE', 'Comic Sans MS', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.buch-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Einzelne Buchseiten */
+.page {
+    background-color: #fffdfa;
+    border: 1px solid #e2d9cc;
+    overflow: hidden;
+}
+
+.page-content {
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Buchfalz-Schatten (Simulation der Buchmitte) */
+.left-page {
+    box-shadow: inset -15px 0 20px -10px rgba(0, 0, 0, 0.15);
+    border-radius: 8px 0 0 8px;
+    background-color: #ffffff;
+}
+
+.right-page {
+    box-shadow: inset 15px 0 20px -10px rgba(0, 0, 0, 0.15);
+    border-radius: 0 8px 8px 0;
+    
+    /* Hintergrundbild für alle rechten Textseiten */
+    background-image: url('text_hintergrund.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Sorgt dafür, dass der Text über dem Hintergrundbild perfekt lesbar bleibt */
+.right-page .page-content {
+    background-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(2px);
+    margin: 20px;
+    border-radius: 12px;
+    height: calc(100% - 40px);
+}
+
+/* Buch-Cover Styling */
+.cover {
+    background: linear-gradient(135deg, #0077c2, #00a8ff);
+    color: white;
+}
+
+.cover h1 {
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+    text-shadow: 1px 2px 4px rgba(0,0,0,0.2);
+}
+
+.cover .subtitle {
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
 .cover-bild {
-    max-width: 80%;
+    max-width: 85%;
     max-height: 45vh;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
@@ -56,7 +95,14 @@ function spielBlätterTon() {
     object-fit: cover;
 }
 
-/* Styling für die Bilder auf den Geschichten-Seiten */
+.cover .hinweis {
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+/* Styling für die Zeichnungen auf den linken Seiten */
 .buch-bild {
     max-width: 100%;
     max-height: 85vh;
@@ -65,4 +111,24 @@ function spielBlätterTon() {
     object-fit: contain;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Seiten-Inhalte */
+h2 {
+    color: #0077c2;
+    font-size: 1.8rem;
+    margin-top: 0;
+}
+
+.geschichte {
+    font-size: 1.6rem;
+    color: #2c3e50;
+    line-height: 1.5;
+    margin: 20px 0 0 0;
+}
+
+.ende {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 20px;
 }
