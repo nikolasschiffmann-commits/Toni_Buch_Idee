@@ -93,7 +93,7 @@ body {
 }
 
 /* ----------------------------------------------------
-   COVER STYLING (Vorder- und Rückseite)
+   COVER STYLING (Vorder- und Rückseite - Leuchtende Schrift)
 ---------------------------------------------------- */
 .cover {
     background: linear-gradient(145deg, #1d4ed8, #0284c7) !important;
@@ -124,13 +124,20 @@ body {
     background: transparent !important;
 }
 
-/* Texte & Überschriften auf Cover-Seiten hell machen */
+/* Erzwingt eine helle, gut lesbare Schrift auf allen Cover-/Rückseiten */
 .cover h1,
 .cover h2,
 .cover .geschichte,
 .cover .ende {
     color: #ffffff !important;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Speziell für die Rückseite: Überschrift und Text hell machen */
+.right-page.cover h2,
+.right-page.cover .geschichte,
+.right-page.cover .ende {
+    color: #ffffff !important;
 }
 
 /* Edle Typografie für den Buchtitel */
@@ -182,7 +189,6 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     margin-bottom: 5px !important;
 }
-
 /* ----------------------------------------------------
    STYLING FÜR DIE ZEICHNUNGEN (Links)
 ---------------------------------------------------- */
