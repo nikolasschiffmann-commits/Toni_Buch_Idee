@@ -1,117 +1,47 @@
-* {
-    box-sizing: border-box;
-}
+window.addEventListener('DOMContentLoaded', () => {
+    // Initialisierung des 3D-Buchs mit StPageFlip
+    const pageFlip = new St.PageFlip(document.getElementById('buch'), {
+        width: 500, // Breite einer einzelnen Seite
+        height: 650, // Höhe einer einzelnen Seite
+        size: "stretch", // Passt sich flexibel dem iPad-Bildschirm an
+        minWidth: 300,
+        maxWidth: 700,
+        minHeight: 400,
+        maxHeight: 900,
+        maxShadowOpacity: 0.5, // Echter 3D-Schattenwurf beim Blättern
+        showCover: true, // Startet mit dem geschlossenen Buch/Cover
+        mobileScrollSupport: false
+    });
 
-body {
-    background: #eef2f5;
-    background-image: radial-gradient(#d0d7de 1px, transparent 1px);
-    background-size: 20px 20px;
-    font-family: 'Chalkboard SE', 'Comic Sans MS', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
-}
+    // Lädt alle Seiten aus dem HTML
+    pageFlip.loadFromHTML(document.querySelectorAll('.page'));
 
-.buch-container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    // Erzeugt das Blätter-Geräusch beim Umblättern
+    pageFlip.on('flip', (e) => {
+        spielBlätterTon();
+    });
+});
 
-/* Einzelne Buchseiten */
-.page {
-    background-color: #fffdfa;
-    border: 1px solid #e2d9cc;
-    overflow: hidden;
-}
-
-.page-content {
-    padding: 30px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-/* Buchfalz-Schatten (Simulation der Buchmitte) */
-.left-page {
-    box-shadow: inset -15px 0 20px -10px rgba(0, 0, 0, 0.15);
-    border-radius: 8px 0 0 8px;
-}
-
-.right-page {
-    box-shadow: inset 15px 0 20px -10px rgba(0, 0, 0, 0.15);
-    border-radius: 0 8px 8px 0;
-}
-
-/* Buch-Cover Styling */
-.cover {
-    background: linear-gradient(135deg, #0077c2, #00a8ff);
-    color: white;
-}
-
-.cover h1 {
-    font-size: 2.2rem;
-    margin-bottom: 5px;
-    text-shadow: 1px 2px 4px rgba(0,0,0,0.2);
-}
-
-.cover .subtitle {
-    font-size: 1.3rem;
-    opacity: 0.9;
-}
-
-.cover-illustration {
-    font-size: 5rem;
-    margin: 30px 0;
-}
-
-.cover .hinweis {
-    font-size: 1rem;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 8px 15px;
-    border-radius: 20px;
-}
-
-/* Seiten-Inhalte */
-h2 {
-    color: #0077c2;
-    font-size: 1.8rem;
-    margin-top: 0;
-}
-
-.bild-platzhalter {
-    width: 100%;
-    height: 80%;
-    border: 3px dashed #cbd5e1;
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f8fafc;
-    color: #64748b;
-    font-size: 1.2rem;
-    padding: 20px;
-}
-
-.geschichte {
-    font-size: 1.6rem;
-    color: #2c3e50;
-    line-height: 1.5;
-    margin: 20px 0 0 0;
-}
-
-.ende {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-top: 20px;
+// Sound-Effekt über die Web Audio API
+function spielBlätterTon() {
+    try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        
+        oscillator.type = 'sine';
+        oscillator.frequency.setValueAtTime(250, audioCtx.currentTime);
+        oscillator.frequency.exponentialRampToValueAtTime(60, audioCtx.currentTime + 0.12);
+        
+        gainNode.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.12);
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        
+        oscillator.start();
+        oscillator.stop(audioCtx.currentTime + 0.12);
+    } catch (e) {
+        // Stumm weitermachen, falls Audio nicht unterstützt wird
+    }
 }
