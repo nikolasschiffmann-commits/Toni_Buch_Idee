@@ -2,114 +2,200 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Tonis Reise nach Tinos</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
-    <div id="buch">
-        
-        <!-- Cover -->
-        <div class="seite cover">
-            <h1>Tonis Reise nach Tinos 🇬🇷</h1>
-            <p>Ein Bilderbuch für Toni</p>
-            <p class="hinweis">👈 Tippe ins Buch zum Umblättern</p>
-        </div>
+    <div class="buch-container">
+        <div id="buch">
+            
+            <!-- Cover -->
+            <div class="page cover" data-density="hard">
+                <div class="page-content">
+                    <h1>Tonis Reise nach Tinos 🇬🇷</h1>
+                    <p class="subtitle">Ein Bilderbuch für Toni</p>
+                    <div class="cover-illustration">⛵</div>
+                    <p class="hinweis">👉 Wische über die Ecke zum Umblättern</p>
+                </div>
+            </div>
 
-        <!-- Seite 1 -->
-        <div class="seite">
-            <h2>1. Koffer packen!</h2>
-            <div class="bild-platzhalter">🎨 [Zeichnung: Toni mit Koffer]</div>
-            <p class="geschichte">Koffer packen! Wo ist das Flugzeug? Da oben! Ab geht die Reise.</p>
-        </div>
+            <!-- Doppelseite 1: Koffer packen -->
+            <div class="page left-page">
+                <div class="page-content">
+                    <div class="bild-platzhalter">🎨 [Zeichnung: Toni packt Koffer]</div>
+                </div>
+            </div>
+            <div class="page right-page">
+                <div class="page-content">
+                    <h2>1. Koffer packen!</h2>
+                    <p class="geschichte">Koffer packen! Wo ist das Flugzeug? Da oben! Ab geht die Reise.</p>
+                </div>
+            </div>
 
-        <!-- Seite 2 -->
-        <div class="seite">
-            <h2>2. Im Flugzeug</h2>
-            <div class="bild-platzhalter">🎨 [Zeichnung: Flugzeug in den Wolken]</div>
-            <p class="geschichte">Hoch oben in den Wolken... Wusch! Der Flieger fliegt ganz schnell.</p>
-        </div>
+            <!-- Doppelseite 2: Flugzeug -->
+            <div class="page left-page">
+                <div class="page-content">
+                    <div class="bild-platzhalter">🎨 [Zeichnung: Flugzeug in den Wolken]</div>
+                </div>
+            </div>
+            <div class="page right-page">
+                <div class="page-content">
+                    <h2>2. Im Flugzeug</h2>
+                    <p class="geschichte">Hoch oben in den Wolken... Wusch! Der Flieger fliegt ganz schnell.</p>
+                </div>
+            </div>
 
-        <!-- Seite 3 -->
-        <div class="seite">
-            <h2>3. Ankunft in Rafina</h2>
-            <div class="bild-platzhalter">🎨 [Zeichnung: Hafen von Rafina mit Schiffen]</div>
-            <p class="geschichte">Hallo Griechenland! Wir sind am Hafen in Rafina. Schau mal, wie viele Schiffe!</p>
-        </div>
+            <!-- Doppelseite 3: Rafina -->
+            <div class="page left-page">
+                <div class="page-content">
+                    <div class="bild-platzhalter">🎨 [Zeichnung: Hafen von Rafina mit Schiffen]</div>
+                </div>
+            </div>
+            <div class="page right-page">
+                <div class="page-content">
+                    <h2>3. Ankunft in Rafina</h2>
+                    <p class="geschichte">Hallo Griechenland! Wir sind am Hafen in Rafina. Schau mal, wie viele Schiffe!</p>
+                </div>
+            </div>
 
-        <!-- Seite 4 -->
-        <div class="seite">
-            <h2>4. Mit dem Katamaran</h2>
-            <div class="bild-platzhalter">🎨 [Zeichnung: Schneller Katamaran auf dem Meer]</div>
-            <p class="geschichte">Tuff-tuff! Wir fahren mit dem schnellen Katamaran über das blaue Meer nach Tinos.</p>
-        </div>
+            <!-- Doppelseite 4: Katamaran -->
+            <div class="page left-page">
+                <div class="page-content">
+                    <div class="bild-platzhalter">🎨 [Zeichnung: Schneller Katamaran]</div>
+                </div>
+            </div>
+            <div class="page right-page">
+                <div class="page-content">
+                    <h2>4. Mit dem Katamaran</h2>
+                    <p class="geschichte">Tuff-tuff! Wir fahren mit dem schnellen Katamaran über das blaue Meer nach Tinos.</p>
+                </div>
+            </div>
 
-        <!-- Seite 5 -->
-        <div class="seite">
-            <h2>5. Am Strand</h2>
-            <div class="bild-platzhalter">🎨 [Zeichnung: Toni baut Sandburg & sammelt Muscheln]</div>
-            <p class="geschichte">Platsch! Toni baut eine riesige Sandburg am Strand und sammelt bunte Muscheln.</p>
-        </div>
+            <!-- Doppelseite 5: Strand -->
+            <div class="page left-page">
+                <div class="page-content">
+                    <div class="bild-platzhalter">🎨 [Zeichnung: Sandburg & Muscheln]</div>
+                </div>
+            </div>
+            <div class="page right-page">
+                <div class="page-content">
+                    <h2>5. Am Strand</h2>
+                    <p class="geschichte">Platsch! Toni baut eine riesige Sandburg am Strand und sammelt bunte Muscheln.</p>
+                </div>
+            </div>
 
-        <!-- Seite 6 -->
-        <div class="seite">
-            <h2>6. Papa fährt Fahrrad!</h2>
-            <div class="bild-platzhalter">🎨 [Zeichnung: Papa fährt Fahrrad den Berg hoch, Toni jubelt]</div>
-            <p class="geschichte">Strampeln, Papa! Toni ruft vom Straßenrand: „Auf geht’s Papa, Schokolade kaufen!“ 🍫</p>
-        </div>
+            <!-- Doppelseite 6: Papa Fahrrad -->
+            <div class="page left-page">
+                <div class="page-content">
+                    <div class="bild-platzhalter">🎨 [Zeichnung: Papa fährt Fahrrad den Berg hoch]</div>
+                </div>
+            </div>
+            <div class="page right-page">
+                <div class="page-content">
+                    <h2>6. Papa fährt Fahrrad!</h2>
+                    <p class="geschichte">Strampeln, Papa! Toni ruft vom Straßenrand: „Auf geht’s Papa, Schokolade kaufen!“ 🍫</p>
+                </div>
+            </div>
 
-        <!-- Seite 7 -->
-        <div class="seite">
-            <h2>7. Auf dem Spielplatz</h2>
-            <div class="bild-platzhalter">🎨 [Zeichnung: Toni schaukelt und sieht Fähren im Hafen]</div>
-            <p class="geschichte">Hui, wie hoch! Von der Schaukel aus sieht Toni die großen Fähren im Hafen anlegen.</p>
-        </div>
+            <!-- Doppelseite 7: Spielplatz -->
+            <div class="page left-page">
+                <div class="page-content">
+                    <div class="bild-platzhalter">🎨 [Zeichnung: Toni schaukelt & sieht Fähren]</div>
+                </div>
+            </div>
+            <div class="page right-page">
+                <div class="page-content">
+                    <h2>7. Auf dem Spielplatz</h2>
+                    <p class="geschichte">Hui, wie hoch! Von der Schaukel aus sieht Toni die großen Fähren im Hafen anlegen.</p>
+                </div>
+            </div>
 
-        <!-- Seite 8 -->
-        <div class="seite">
-            <h2>8. Mit Oma und Opa</h2>
-            <div class="bild-platzhalter">🎨 [Zeichnung: Toni spielt am Strand mit Oma und Opa]</div>
-            <p class="geschichte">Hurra! Toni baut zusammen mit Oma und Opa die allergrößte Sandburg am Meer.</p>
-        </div>
+            <!-- Doppelseite 8: Oma & Opa -->
+            <div class="page left-page">
+                <div class="page-content">
+                    <div class="bild-platzhalter">🎨 [Zeichnung: Strandspaß mit Oma & Opa]</div>
+                </div>
+            </div>
+            <div class="page right-page">
+                <div class="page-content">
+                    <h2>8. Mit Oma und Opa</h2>
+                    <p class="geschichte">Hurra! Toni baut zusammen mit Oma und Opa die allergrößte Sandburg am Meer.</p>
+                </div>
+            </div>
 
-        <!-- Seite 9 -->
-        <div class="seite">
-            <h2>9. Der Pelikan</h2>
-            <div class="bild-platzhalter">🎨 [Zeichnung: Toni und Mama Alina besuchen den Pelikan]</div>
-            <p class="geschichte">Guck mal! Zusammen mit Mama Alina besucht Toni den Pelikan direkt neben dem Spielplatz.</p>
-        </div>
+            <!-- Doppelseite 9: Pelikan -->
+            <div class="page left-page">
+                <div class="page-content">
+                    <div class="bild-platzhalter">🎨 [Zeichnung: Toni & Mama Alina beim Pelikan]</div>
+                </div>
+            </div>
+            <div class="page right-page">
+                <div class="page-content">
+                    <h2>9. Der Pelikan</h2>
+                    <p class="geschichte">Guck mal! Zusammen mit Mama Alina besucht Toni den Pelikan direkt neben dem Spielplatz.</p>
+                </div>
+            </div>
 
-        <!-- Seite 10 -->
-        <div class="seite">
-            <h2>10. Beim Bäcker</h2>
-            <div class="bild-platzhalter">🎨 [Zeichnung: Toni kauft ein Käsebrötchen im urigen Bäckerladen]</div>
-            <p class="geschichte">Mjam! Toni holt sich ein leckeres Käsebrötchen beim Bäcker und sagt stolz: „Efcharisto!“ 🥐</p>
-        </div>
+            <!-- Doppelseite 10: Bäcker -->
+            <div class="page left-page">
+                <div class="page-content">
+                    <div class="bild-platzhalter">🎨 [Zeichnung: Käsebrötchen beim Bäcker]</div>
+                </div>
+            </div>
+            <div class="page right-page">
+                <div class="page-content">
+                    <h2>10. Beim Bäcker</h2>
+                    <p class="geschichte">Mjam! Toni holt sich ein leckeres Käsebrötchen beim Bäcker und sagt stolz: „Efcharisto!“ 🥐</p>
+                </div>
+            </div>
 
-        <!-- Seite 11 -->
-        <div class="seite">
-            <h2>11. Tschüss Tinos!</h2>
-            <div class="bild-platzhalter">🎨 [Zeichnung: Katamaran auf der Rückfahrt]</div>
-            <p class="geschichte">Tschüss schöne Insel! Mit dem Katamaran geht es wieder über das große blaue Meer.</p>
-        </div>
+            <!-- Doppelseite 11: Rückreise Katamaran -->
+            <div class="page left-page">
+                <div class="page-content">
+                    <div class="bild-platzhalter">🎨 [Zeichnung: Katamaran auf Rückweg]</div>
+                </div>
+            </div>
+            <div class="page right-page">
+                <div class="page-content">
+                    <h2>11. Tschüss Tinos!</h2>
+                    <p class="geschichte">Tschüss schöne Insel! Mit dem Katamaran geht es wieder über das große blaue Meer.</p>
+                </div>
+            </div>
 
-        <!-- Seite 12 -->
-        <div class="seite">
-            <h2>12. Flug nach Frankfurt</h2>
-            <div class="bild-platzhalter">🎨 [Zeichnung: Flugzeug fliegt von Mykonos nach Frankfurt]</div>
-            <p class="geschichte">Von Mykonos geht es hoch in die Luft – zurück nach Frankfurt. Tschüss Griechenland!</p>
-        </div>
+            <!-- Doppelseite 12: Flugzeug Heimflug -->
+            <div class="page left-page">
+                <div class="page-content">
+                    <div class="bild-platzhalter">🎨 [Zeichnung: Flug von Mykonos nach Frankfurt]</div>
+                </div>
+            </div>
+            <div class="page right-page">
+                <div class="page-content">
+                    <h2>12. Flug nach Frankfurt</h2>
+                    <p class="geschichte">Von Mykonos geht es hoch in die Luft – zurück nach Frankfurt. Tschüss Griechenland!</p>
+                </div>
+            </div>
 
-        <!-- Seite 13 -->
-        <div class="seite">
-            <h2>13. Gute Nacht auf dem Heimweg</h2>
-            <div class="bild-platzhalter">🎨 [Zeichnung: Schlafender Toni im Kindersitz im Auto]</div>
-            <p class="geschichte">Brumm brumm... Im Auto schläft Toni sanft ein. Was für eine wunderschöne Reise! ✨</p>
-        </div>
+            <!-- Doppelseite 13: Schlafen im Auto -->
+            <div class="page left-page">
+                <div class="page-content">
+                    <div class="bild-platzhalter">🎨 [Zeichnung: Schlafender Toni im Auto]</div>
+                </div>
+            </div>
+            <div class="page right-page cover" data-density="hard">
+                <div class="page-content">
+                    <h2>13. Gute Nacht!</h2>
+                    <p class="geschichte">Brumm brumm... Im Auto schläft Toni sanft ein. Was für eine wunderschöne Reise! ✨</p>
+                    <p class="ende">Ende ❤️</p>
+                </div>
+            </div>
 
+        </div>
     </div>
 
+    <!-- Skripte am Ende laden -->
     <script src="page-flip.js"></script>
+    <script src="script.js?v=3"></script>
 </body>
 </html>
