@@ -16,9 +16,22 @@ window.addEventListener('DOMContentLoaded', () => {
     // Lädt alle Seiten aus dem HTML
     pageFlip.loadFromHTML(document.querySelectorAll('.page'));
 
+    const zurueckButton = document.getElementById('zurueck-button');
+    const vorButton = document.getElementById('vor-button');
+    const aktualisiereNavigation = () => {
+        const aktuelleSeite = pageFlip.getCurrentPageIndex();
+        zurueckButton.hidden = aktuelleSeite === 0;
+        vorButton.hidden = aktuelleSeite === pageFlip.getPageCount() - 1;
+    };
+
+    zurueckButton.addEventListener('click', () => pageFlip.flipPrev());
+    vorButton.addEventListener('click', () => pageFlip.flipNext());
+    aktualisiereNavigation();
+
     // Erzeugt das Blätter-Geräusch beim Umblättern
     pageFlip.on('flip', (e) => {
         spielBlätterTon();
+        aktualisiereNavigation();
     });
 });
 

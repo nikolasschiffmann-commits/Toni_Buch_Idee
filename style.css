@@ -24,6 +24,56 @@ body {
     align-items: center;
 }
 
+.seiten-knopf {
+    position: fixed;
+    top: 50%;
+    z-index: 10;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 2px solid #1e3a8a;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ffffff, #e8e3d8);
+    color: #1e3a8a;
+    box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.9), 0 5px 0 #142b68, 0 8px 14px rgba(0, 0, 0, 0.25);
+    font: inherit;
+    font-size: 2.2rem;
+    line-height: 1;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+.seiten-knopf:hover {
+    background: linear-gradient(145deg, #fff9c4, #fef08a);
+    transform: translateY(calc(-50% - 2px));
+}
+
+.seiten-knopf:active {
+    box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.15), 0 2px 0 #142b68, 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(calc(-50% + 3px));
+}
+
+.seiten-knopf:focus-visible {
+    outline: 3px solid #0284c7;
+    outline-offset: 3px;
+}
+
+.seiten-knopf[hidden] {
+    display: none;
+}
+
+.seiten-knopf-zurueck {
+    left: 16px;
+}
+
+.seiten-knopf-vor {
+    right: 16px;
+}
+
 /* Einzelne Buchseiten */
 .page {
     background-color: #fffdfa;
